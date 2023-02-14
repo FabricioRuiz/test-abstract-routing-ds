@@ -18,10 +18,10 @@ public class Controller {
 	public String test(){
 		String value = "";
 		MultitenantContext.setCurrentTenant(Schema.company.name()); // This is the lookup key for the AbstractRoutingDataSource
-		value += companyRepository.count();
+		value += countCompanies();
 
 		MultitenantContext.setCurrentTenant(Schema.user.name());
-		value += userRepository.count();
+		value += countUsers();
 		return value;
 	}
 
